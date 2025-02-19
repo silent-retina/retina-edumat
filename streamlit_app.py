@@ -166,8 +166,8 @@ def main():
         st.title("Content Evaluator Feedback Form")
         
         evaluator_level = st.selectbox(
-            "Your Current Level",
-            ["Medical Student", "Resident", "Fellow", "Consultant"]
+            "Select Reviewer ID [Consultant...]",
+            ["001", "002", "003", "004", "005"]
         )
         
         st.subheader("Content Evaluation")
