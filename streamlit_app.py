@@ -90,7 +90,7 @@ def main():
     
     with tab1:
         st.title("👁️ Retina Patient Education Generator")
-        st.markdown("---")
+        st.markdown("--- ©Anand Singh Brar  [**@brar_retina**](https://www.instagram.com/brar_retina)")
         
         col1, col2 = st.columns(2)
         
