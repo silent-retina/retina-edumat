@@ -39,7 +39,7 @@ if "GOOGLE_API_KEY" not in st.secrets:
     st.stop()
 
 genai.configure(api_key=st.secrets["GOOGLE_API_KEY"])
-model = genai.GenerativeModel('gemini-pro')
+model = genai.GenerativeModel('gemini-2.0-flash-exp')
 
 def generate_content(patient_data, clinical_data):
     prompt = f"""
@@ -100,11 +100,11 @@ def main():
                 'age': st.number_input("Patient Age", 1, 100, 50),
                 'language': st.selectbox(
                     "Preferred Language",
-                    ["English", "Hindi", "Punjabi", "Odiya"]
+                    ["English", "Hindi", "Punjabi", "Odiya", "Marathi", "Bengali", "Korean", "Chinese", "Japanese"]
                 ),
                 'education': st.selectbox(
                     "Education Level",
-                    ["Primary", "Secondary", "Tertiary"]
+                    ["Primary (upto grade 5)", "Secondary (upto High School)", "Tertiary (> High School)"]
                 )
             }
         
@@ -117,8 +117,9 @@ def main():
                         "Diabetic Retinopathy",
                         "Age-related Macular Degeneration",
                         "Retinal Detachment",
-                        "Central Serous Retinopathy",
-                        "Diabetic Macular Edema"
+                        "Central Serous Chorio-retinopathy",
+                        "Diabetic Macular Edema",
+                        "Retinal Vein Occlusion"
                     ]
                 ),
                 'va_re': st.text_input("Visual Acuity (Right Eye)", "6/6"),
@@ -185,7 +186,7 @@ def main():
         suggestions = st.text_area("Any specific suggestions for improvement?")
         
         would_use = st.radio(
-            "Would you use this system in your practice?",
+            "Would you use this output in your practice?",
             ["Definitely", "Probably", "Maybe", "Probably Not", "Definitely Not"]
         )
         
